@@ -10,7 +10,7 @@
    <title>ingreso de productos</title>
    </script>
 </head>
-<body>
+<body style="background-color: ;">
    <div><h1 style="text-align: center; background-color: ;">Trabajo en grupo</h1></div><br>
    <br>
    <button class="btn btn-dark" onclick="ingreso();">Ingreso de Productos</button>
@@ -107,28 +107,13 @@
                   "</td><td>"+lista[i].cantidad+
                   "</td><td>"+"$"+lista[i].total+
                   "</td></tr>"
+            total+=lista[i].total;
          }
+         let iva=total*0.19;
+         let tpagar=total+iva;
          document.getElementById('gencompra').innerHTML=ver;
-      }
-      function total(){
-      totalitem();
-               let total =0;
-               let sumatotal = 0;
-               for (var i = 0; i < lista.length; i++) {
-                  if(lista.length>1){
-                     totaltot =lista[0].total+lista[i].total;
-                     iva=totaltot*0.19;
-                     sumatotal=totaltot+iva;
-                  }else{
-                     totaltot=lista[i].total;
-                     iva=totaltot*0.19;
-                     sumatotal=totaltot+iva;
-                  }
-               }
-              document.getElementById('totpedido').innerHTML="total neto: $"+totaltot+"<br>total iva: $"+iva.toFixed(0)+"<br>total con iva: $"+sumatotal.toFixed(0);         
-      }
-      
-      
+         document.getElementById('totpedido').innerHTML="total neto: $"+total+"<br>total iva: $"+iva.toFixed(0)+"<br>total con iva: $"+tpagar.toFixed(0);
+      }         
    </script>
    </body>
 
